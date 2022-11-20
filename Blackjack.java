@@ -132,6 +132,7 @@ public class Blackjack {
                        |  |  |
                        |____A|
                      """;
+
              case 2 -> """
                         _____
                        |2    |
@@ -140,6 +141,7 @@ public class Blackjack {
                        |  o  |
                        |____2|
                      """;
+
              case 3 -> """
                         _____
                        |3    |
@@ -148,6 +150,7 @@ public class Blackjack {
                        |  o  |
                        |____3|
                      """;
+
              case 4 -> """
                         _____
                        |4    |
@@ -156,6 +159,7 @@ public class Blackjack {
                        | o o |
                        |____4|
                      """;
+
              case 5 -> """
                         _____\s
                        |5    |
@@ -164,6 +168,7 @@ public class Blackjack {
                        | o o |
                        |____5|
                      """;
+
              case 6 -> """
                         _____\s
                        |6    |
@@ -172,6 +177,7 @@ public class Blackjack {
                        | o o |
                        |____6|
                      """;
+
              case 7 -> """
                         _____\s
                        |7    |
@@ -180,6 +186,7 @@ public class Blackjack {
                        | o o |
                        |____7|
                      """;
+
              case 8 -> """
                         _____\s
                        |8    |
@@ -188,6 +195,7 @@ public class Blackjack {
                        |o o o|
                        |____8|
                      """;
+
              case 9 -> """
                         _____\s
                        |9    |
@@ -196,6 +204,7 @@ public class Blackjack {
                        |o o o|
                        |____9|
                      """;
+
              case 10 -> """
                         _____\s
                        |10  o|
@@ -204,6 +213,7 @@ public class Blackjack {
                        |o o o|
                        |___10|
                      """;
+
              case 11 -> """
                         _____
                        |J  ww|
@@ -212,6 +222,7 @@ public class Blackjack {
                        | | % |
                        |__%%J|
                      """;
+
              case 12 -> """
                         _____
                        |Q  ww|
@@ -220,6 +231,7 @@ public class Blackjack {
                        | |%%%|
                        |_%%%Q|
                      """;
+
              case 13 -> """
                         _____
                        |K  WW|
@@ -228,6 +240,7 @@ public class Blackjack {
                        | |%%%|
                        |_%%%K|
                      """;
+                     
              default -> "This shouldn't get called.";
          };
      }
