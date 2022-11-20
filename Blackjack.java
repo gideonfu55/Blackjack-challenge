@@ -110,8 +110,7 @@ public class Blackjack {
      */
 
      public static int drawRandomCard() {
-        int randomNumber = (int)(Math.random() * 13 + 1);
-        return randomNumber;
+         return (int)(Math.random() * 13 + 1);
      }
 
     /** Task 2 – make a function that returns a String drawing of the card.
@@ -124,125 +123,125 @@ public class Blackjack {
      */
 
      public static String cardString(int cardNumber) {
-        switch(cardNumber) {
-            
-            case 1:
-                return "   _____\n" +
-                       "  |A _  |\n" +
-                       "  | ( ) |\n" +
-                       "  |(_'_)|\n" +
-                       "  |  |  |\n" +
-                       "  |____A|\n";
-
-            case 2:
-                return "   _____\n" +
-                       "  |2    |\n" +
-                       "  |  o  |\n" +
-                       "  |     |\n" +
-                       "  |  o  |\n" +
-                       "  |____2|\n";
-
-            case 3:
-                return "   _____\n" +
-                       "  |3    |\n" +
-                       "  | o o |\n" +
-                       "  |     |\n" +
-                       "  |  o  |\n" +
-                       "  |____3|\n";
-
-            case 4:
-                return "   _____\n" +
-                       "  |4    |\n" +
-                       "  | o o |\n" +
-                       "  |     |\n" +
-                       "  | o o |\n" +
-                       "  |____4|\n";
-
-            case 5:
-                return "   _____ \n" +
-                       "  |5    |\n" +
-                       "  | o o |\n" +
-                       "  |  o  |\n" +
-                       "  | o o |\n" +
-                       "  |____5|\n";
-
-            case 6:
-                return "   _____ \n" +
-                       "  |6    |\n" +
-                       "  | o o |\n" +
-                       "  | o o |\n" +
-                       "  | o o |\n" +
-                       "  |____6|\n";
-
-            case 7:
-                return "   _____ \n" +
-                       "  |7    |\n" +
-                       "  | o o |\n" +
-                       "  |o o o|\n" +
-                       "  | o o |\n" +
-                       "  |____7|\n";
-
-            case 8:
-                return "   _____ \n" +
-                       "  |8    |\n" +
-                       "  |o o o|\n" +
-                       "  | o o |\n" +
-                       "  |o o o|\n" +
-                       "  |____8|\n";
-
-            case 9:
-                return "   _____ \n" +
-                       "  |9    |\n" +
-                       "  |o o o|\n" +
-                       "  |o o o|\n" +
-                       "  |o o o|\n" +
-                       "  |____9|\n";
-
-            case 10:
-                return "   _____ \n" +
-                       "  |10  o|\n" +
-                       "  |o o o|\n" +
-                       "  |o o o|\n" +
-                       "  |o o o|\n" +
-                       "  |___10|\n";
-
-            case 11:
-                return "   _____\n" +
-                       "  |J  ww|\n" +
-                       "  | o {)|\n" +
-                       "  |o o% |\n" +
-                       "  | | % |\n" +
-                       "  |__%%J|\n";
-
-            case 12:
-                return "   _____\n" +
-                       "  |Q  ww|\n" +
-                       "  | o {(|\n" +
-                       "  |o o%%|\n" +
-                       "  | |%%%|\n" +
-                       "  |_%%%Q|\n";
-
-            case 13:
-                return "   _____\n" +
-                       "  |K  WW|\n" +
-                       "  | o {)|\n" +
-                       "  |o o%%|\n" +
-                       "  | |%%%|\n" +
-                       "  |_%%%K|\n";
-
-            default:
-                return "This shouldn't get called.";
-        }
+         return switch (cardNumber) {
+             case 1 -> """
+                        _____
+                       |A _  |
+                       | ( ) |
+                       |(_'_)|
+                       |  |  |
+                       |____A|
+                     """;
+             case 2 -> """
+                        _____
+                       |2    |
+                       |  o  |
+                       |     |
+                       |  o  |
+                       |____2|
+                     """;
+             case 3 -> """
+                        _____
+                       |3    |
+                       | o o |
+                       |     |
+                       |  o  |
+                       |____3|
+                     """;
+             case 4 -> """
+                        _____
+                       |4    |
+                       | o o |
+                       |     |
+                       | o o |
+                       |____4|
+                     """;
+             case 5 -> """
+                        _____\s
+                       |5    |
+                       | o o |
+                       |  o  |
+                       | o o |
+                       |____5|
+                     """;
+             case 6 -> """
+                        _____\s
+                       |6    |
+                       | o o |
+                       | o o |
+                       | o o |
+                       |____6|
+                     """;
+             case 7 -> """
+                        _____\s
+                       |7    |
+                       | o o |
+                       |o o o|
+                       | o o |
+                       |____7|
+                     """;
+             case 8 -> """
+                        _____\s
+                       |8    |
+                       |o o o|
+                       | o o |
+                       |o o o|
+                       |____8|
+                     """;
+             case 9 -> """
+                        _____\s
+                       |9    |
+                       |o o o|
+                       |o o o|
+                       |o o o|
+                       |____9|
+                     """;
+             case 10 -> """
+                        _____\s
+                       |10  o|
+                       |o o o|
+                       |o o o|
+                       |o o o|
+                       |___10|
+                     """;
+             case 11 -> """
+                        _____
+                       |J  ww|
+                       | o {)|
+                       |o o% |
+                       | | % |
+                       |__%%J|
+                     """;
+             case 12 -> """
+                        _____
+                       |Q  ww|
+                       | o {(|
+                       |o o%%|
+                       | |%%%|
+                       |_%%%Q|
+                     """;
+             case 13 -> """
+                        _____
+                       |K  WW|
+                       | o {)|
+                       |o o%%|
+                       | |%%%|
+                       |_%%%K|
+                     """;
+             default -> "This shouldn't get called.";
+         };
      }
 
     public static String faceDown() {
         return
-        "   _____\n"+
-        "  |     |\n"+ 
-        "  |  J  |\n"+
-        "  | JJJ |\n"+
-        "  |  J  |\n"+
-        "  |_____|\n";
+                """
+                           _____
+                          |     |
+                          |  J  |
+                          | JJJ |
+                          |  J  |
+                          |_____|
+                        """;
     }
     
     /** Task 7 – make a function that asks the user to hit or stay.
@@ -257,13 +256,13 @@ public class Blackjack {
      */
 
      public static String hitOrStay() {
-        String response = "";
+        String response;
         System.out.println("\nDo you wish to hit or stay?");
 
         while(true) {
             response = scan.nextLine();
 
-            if (response.equals("hit") || response.equals("stay")) {;
+            if (response.equals("hit") || response.equals("stay")) {
                 break;
             }
 
