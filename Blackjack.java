@@ -11,61 +11,60 @@ public class Blackjack {
         System.out.println("We shall see..");
         System.out.println("..Ready? Press anything to begin!");
 
-        //Task 3 – Wait for the user to press enter.
+        // 3. Wait for the user to press enter.
         scan.nextLine();
 
-        //Task 4 – Get two random cards.
-        // – Print them: \n You get a \n" + <randomCard> + "\n and a \n" + <randomCard>
+        // 4. Get two random cards.
         int card1 = drawRandomCard();
         int card2 = drawRandomCard();
         System.out.println("\n You get a \n" + cardString(card1) + "\n and a \n" + cardString(card2));
 
-        //Task 5 – Print the sum of your hand value.
-        //       – print: your total is: <hand value>
+        // 5. Print the sum of your hand value.
         int playerHandTotal = Math.min(10, card1) + Math.min(10, card2);
         System.out.println("\nYour total is: " + playerHandTotal);
 
-        //Task 6 – Get two random cards for the dealer.
-        //       – Print: The dealer shows \n" + <first card> + "\nand has a card facing down \n" + <facedown card>
-        //       – Print: \nThe dealer's total is hidden
+        // 6. Get two random cards for the dealer.
+        //    – Print: The dealer shows \n" + <first card> + "\nand has a card facing down \n" + <facedown card>
+        //    – Print: \nThe dealer's total is hidden
         int dealerCard1 = drawRandomCard();
         int dealerCard2 = drawRandomCard();
         
         int dealerHandTotal = Math.min(10, dealerCard1) + Math.min(10, dealerCard2);
 
         System.out.println("\nThe dealer shows \n" + cardString(dealerCard1) + "\n and has a card facing down \n" + faceDown());
-        System.out.println("\nThe dealer's total is hidden.");
-       
-        //Task 8 – Keep asking the player to hit or stay (while loop).
-        //       1. Every time the player hits
-        //             – draw a new card.
-        //             – calculate their new total.
-        //             – print: (new line) You get a (new line) <show new card>.
-        //             - print: your new total is <total>
+        System.out.println("\nThe Dealer's total is hidden.");
 
-        //       2. Once the player stays, break the loop. 
+        // 7b. Check for blackjack in both player's and dealer's hands and ends the game if necessary
+        blackjack(card1, card2, dealerCard1, dealerCard2);
+       
+        // 9. Keep asking the player to hit or stay (while loop).
+        // a. Every time the player hits
+        //    – draw a new card.
+        //    – calculate their new total.
+        //    – print: (new line) You get a (new line) <show new card>.
+        //    - print: your new total is <total>
+
+        // b. Once the player stays, break the loop. 
 
         while (true) {
             String playerChoice = hitOrStay();
 
-            if (playerChoice.equalsIgnoreCase("hit")) {
-                int newPlayerCard = drawRandomCard();
-                playerHandTotal += Math.min(10, newPlayerCard);
-
-                System.out.println("\n You get a: \n" + cardString(newPlayerCard));
-                System.out.println("Your new total is " + playerHandTotal);
-
-            } else {
+            if (playerChoice.equalsIgnoreCase("stay")) {
                 break;
-            }
+            } 
 
+            int newPlayerCard = drawRandomCard();
+            playerHandTotal += Math.min(10, newPlayerCard);
+
+            System.out.println("\n You get a: \n" + cardString(newPlayerCard));
+            System.out.println("Your new total is " + playerHandTotal);
+            
             if (playerHandTotal > 21) {
-                System.out.println("Bust! Player loses!");
+                System.out.println("\nBust! Player loses!\n");
                 System.exit(0);
             }
         }
 
-        // For tasks 9 to 13, see the article: Blackjack Part II.
         // Dealer's turn and 'choice' to draw if player stays his/her hand => similar process as the above while loop:
 
         System.out.println("\nDealer's turn.");
@@ -80,14 +79,14 @@ public class Blackjack {
         }
 
         if (dealerHandTotal > 21) {
-            System.out.println("Bust! Dealer loses! You won!");
+            System.out.println("\nBust! Dealer loses! You won!\n");
             System.exit(0);
         }
         
         // Compare final score and print winner if both player and computer does not bust their hands after their last hits:
-        System.out.println("\nOk, no more bets!");
-        System.out.println("Final player total: " + playerHandTotal);
-        System.out.println("Final computer total: " + dealerHandTotal + "\n");
+        System.out.println("\nOk, no more bets!\n");
+        System.out.println("Final Player Total: " + playerHandTotal);
+        System.out.println("Final Dealer Total: " + dealerHandTotal + "\n");
 
         if (playerHandTotal > dealerHandTotal) {
             System.out.println("Player wins! Congrats!\n");
@@ -100,26 +99,26 @@ public class Blackjack {
         scan.close();
     }
 
-    /** Task 1 – make a function that returns a random number between 1 and 13
+    /** 1. make a function that returns a random number between 1 and 13
      * Function name – drawRandomCard
      * @return (int)
      *
      * Inside the function:
-     *   1. Gets a random number between 1 and 13.
-     *   2. Returns a card.
+     *   a. Gets a random number between 1 and 13.
+     *   b. Returns a card.
      */
 
      public static int drawRandomCard() {
          return (int)(Math.random() * 13 + 1);
      }
 
-    /** Task 2 – make a function that returns a String drawing of the card.
+    /** 2. Make a function that returns a String drawing of the card.
      * Function name – cardString
      * @param cardNumber (int)
      * @return (String)
      *
      * Inside the function:
-     *   1. Returns a String drawing of the card.
+     *  · Returns a String drawing of the card.
      */
 
      public static String cardString(int cardNumber) {
@@ -257,15 +256,15 @@ public class Blackjack {
                         """;
     }
     
-    /** Task 7 – make a function that asks the user to hit or stay.
+    /** 8. Make a function that asks the user to hit or stay.
      * Function name – hitOrStay
      * @return (String)
      *
      * Inside the function:
-     *   1. Asks the user to hit or stay.
-     *   2. If the user doesn't enter "hit" or "stay", keep asking them to try again by printing:
+     *   a. Asks the user to hit or stay.
+     *   b. If the user doesn't enter "hit" or "stay", keep asking them to try again by printing:
      *      Please write 'hit' or 'stay'
-     *   3. Returns the user's option 
+     *   c. Returns the user's option 
      */
 
      public static String hitOrStay() {
@@ -282,6 +281,54 @@ public class Blackjack {
             System.out.println("\nPlease response 'hit' or 'stay'.");
         }
         return response;
-     }
     }
+
+    /** 7a. Make a function that checks if either player's and dealer's hand hits blackjack immediately after the first round of dealing cards:
+     * Function name - blackjack
+     * 
+     * @param playerCard1 (int)
+     * @param playerCard2 (int)
+     * @param dealerCard2 (int)
+     * @param dealerCard2 (int)
+     * 
+     * Inside the function:
+     *  a. Checks for the hand of player and dealer.
+     *  b. If either has a blackjack, the game is won by that hand.
+     *  c. If both player and dealer have blackjacks, it is a draw.
+     *  d. If a - c is not fulfilled, the game continues.
+     * 
+     */
+
+    public static void blackjack(int playerCard1, int playerCard2, int dealerCard1, int dealerCard2) {
+        while (true) {
+
+            if (playerCard1 == 1 && playerCard2 == 1) {
+                if (dealerCard1 != 1 || dealerCard2 != 1) {
+                    System.out.println("\nThe Dealer reveals the facedown card is\n" + cardString(dealerCard2));
+                    System.out.println("\nBlackjack! Player wins the game!\n");
+                    System.exit(0);
+                }
+            }
+
+            if (dealerCard1 == 1 && dealerCard2 == 1) {
+                if (playerCard1 != 1 || playerCard2 != 1) {
+                    System.out.println("\nThe Dealer reveals the facedown card is\n" + cardString(dealerCard2));
+                    System.out.println("\nSorry, you lose! The Dealer has a Blackjack!\n");
+                    System.exit(0);
+                }
+            }
+
+            if ((playerCard1 == 1 && playerCard2 == 1) && (dealerCard1 == 1 && dealerCard2 == 1)) {
+                System.out.println("\nThe Dealer reveals the facedown card is\n" + cardString(dealerCard2));
+                System.out.println("\nIt is a push! Both Player and Dealer got a Blackjack!\n");
+                System.exit(0);
+            }
+
+            else {
+                break;
+            }
+        }
+    }
+}
+
 
