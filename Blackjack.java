@@ -247,13 +247,13 @@ public class Blackjack {
     public static String faceDown() {
         return
                 """
-                           _____
-                          |     |
-                          |  J  |
-                          | JJJ |
-                          |  J  |
-                          |_____|
-                        """;
+                   _____
+                  |     |
+                  |  J  |
+                  | JJJ |
+                  |  J  |
+                  |_____|
+                """;
     }
     
     /** 8. Make a function that asks the user to hit or stay.
