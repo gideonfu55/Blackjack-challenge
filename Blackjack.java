@@ -48,7 +48,7 @@ public class Blackjack {
         while (true) {
             String playerChoice = hitOrStay();
 
-            if (playerChoice.equals("hit")) {
+            if (playerChoice.equalsIgnoreCase("hit")) {
                 int newPlayerCard = drawRandomCard();
                 playerHandTotal += Math.min(10, newPlayerCard);
 
@@ -275,7 +275,7 @@ public class Blackjack {
         while(true) {
             response = scan.nextLine();
 
-            if (response.equals("hit") || response.equals("stay")) {
+            if (response.equalsIgnoreCase("hit") || response.equalsIgnoreCase("stay")) {
                 break;
             }
 
