@@ -288,9 +288,8 @@ public class Blackjack {
      * 
      * @param playerCard1 (int)
      * @param playerCard2 (int)
+     * @param dealerCard1 (int)
      * @param dealerCard2 (int)
-     * @param dealerCard2 (int)
-     * 
      * Inside the function:
      *  a. Checks for the hand of player and dealer.
      *  b. If either has a blackjack, the game is won by that hand.
@@ -300,33 +299,26 @@ public class Blackjack {
      */
 
     public static void blackjack(int playerCard1, int playerCard2, int dealerCard1, int dealerCard2) {
-        while (true) {
-
-            if (playerCard1 == 1 && playerCard2 == 1) {
-                if (dealerCard1 != 1 || dealerCard2 != 1) {
-                    System.out.println("\nThe Dealer reveals the facedown card is\n" + cardString(dealerCard2));
-                    System.out.println("\nBlackjack! Player wins the game!\n");
-                    System.exit(0);
-                }
-            }
-
-            if (dealerCard1 == 1 && dealerCard2 == 1) {
-                if (playerCard1 != 1 || playerCard2 != 1) {
-                    System.out.println("\nThe Dealer reveals the facedown card is\n" + cardString(dealerCard2));
-                    System.out.println("\nSorry, you lose! The Dealer has a Blackjack!\n");
-                    System.exit(0);
-                }
-            }
-
-            if ((playerCard1 == 1 && playerCard2 == 1) && (dealerCard1 == 1 && dealerCard2 == 1)) {
+        if (playerCard1 == 1 && playerCard2 == 1) {
+            if (dealerCard1 != 1 || dealerCard2 != 1) {
                 System.out.println("\nThe Dealer reveals the facedown card is\n" + cardString(dealerCard2));
-                System.out.println("\nIt is a push! Both Player and Dealer got a Blackjack!\n");
+                System.out.println("\nBlackjack! Player wins the game!\n");
                 System.exit(0);
             }
+        }
 
-            else {
-                break;
+        if (dealerCard1 == 1 && dealerCard2 == 1) {
+            if (playerCard1 != 1 || playerCard2 != 1) {
+                System.out.println("\nThe Dealer reveals the facedown card is\n" + cardString(dealerCard2));
+                System.out.println("\nSorry, you lose! The Dealer has a Blackjack!\n");
+                System.exit(0);
             }
+        }
+
+        if (playerCard1 == 1 && playerCard2 == 1) {
+            System.out.println("\nThe Dealer reveals the facedown card is\n" + cardString(dealerCard2));
+            System.out.println("\nIt is a push! Both Player and Dealer got a Blackjack!\n");
+            System.exit(0);
         }
     }
 }
