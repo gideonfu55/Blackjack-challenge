@@ -89,13 +89,17 @@ public class Blackjack {
         System.out.println("Final Dealer Total: " + dealerHandTotal + "\n");
 
         if (playerHandTotal > dealerHandTotal) {
-            System.out.println("Player wins! Congrats!\n");
+            if (playerHandTotal == 21) {
+               System.out.println("Blackjack! Player wins! Congrats!\n");
+            } else {
+                System.out.println("Player wins! Congrats!\n");
+            }
         } else if (dealerHandTotal > playerHandTotal) { 
             System.out.println("Sorry, Dealer wins!\n");
         } else {
             System.out.println("It is a draw!\n");
         }
-      
+        
         scan.close();
     }
 
